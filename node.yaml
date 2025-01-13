@@ -18,6 +18,13 @@ spec:
           image: your-docker-image:latest
           ports:
             - containerPort: 80
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
 
 ---
 # Service configuration
