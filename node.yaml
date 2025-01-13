@@ -1,3 +1,55 @@
-apiVersion:
-  kind:
-  apps/v1:
+# Deployment configuration
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - name: webapp
+          image: your-docker-image:latest
+          ports:
+            - containerPort: 80
+
+---
+# Service configuration
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  selector:
+    app: webapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+# # Use the official Python image from the Docker Hub
+# FROM python:3.9-slim
+
+# # Set the working directory in the container
+# WORKDIR /app
+
+# # Copy the current directory contents into the container at /app
+# COPY . /app
+
+# # Install any needed packages specified in requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# # Make port 80 available to the world outside this container
+# EXPOSE 80
+
+# # Define environment variable
+# ENV NAME World
+
+# # Run app.py when the container launches
+# CMD ["python", "app.py"]
