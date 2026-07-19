@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Renovate Bot
-        uses: renovatebot/github-action@v46.1.15
+        uses: renovatebot/github-action@v46.1.19
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           configurationFile: renovate.json
