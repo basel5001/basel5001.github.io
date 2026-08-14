@@ -1,0 +1,7 @@
+name: PR Size Labeler
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  label:
+    uses: basel5001/githubinfra/.github/workflows/pr-size-labeler.yml@main
