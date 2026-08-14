@@ -1,0 +1,7 @@
+name: Dependency Review
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  review:
+    uses: basel5001/githubinfra/.github/workflows/dependency-review.yml@main
