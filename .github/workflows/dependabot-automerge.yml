@@ -1,0 +1,10 @@
+name: Dependabot Auto-Merge
+
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  automerge:
+    uses: basel5001/githubinfra/.github/workflows/dependabot-automerge.yml@main
